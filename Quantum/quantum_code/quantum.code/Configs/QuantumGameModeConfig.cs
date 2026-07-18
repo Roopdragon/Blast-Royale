@@ -113,7 +113,7 @@ namespace Quantum
 
 #endregion
 
-		[ValueDropdown("GetOptionalSystems"), ListDrawerSettings(Expanded = true), PropertyTooltip(DESC_SYSTEMS)]
+		[ValueDropdown("GetOptionalSystems"), ListDrawerSettings(DefaultExpandedState = true), PropertyTooltip(DESC_SYSTEMS)]
 		public List<string> Systems;
 
 		#region Odin Helpers
