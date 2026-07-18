@@ -44,7 +44,7 @@
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0" />
     <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>..\..\..\BlastRoyale\Assets\Libs\Odin\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <HintPath>..\..\..\BlastRoyale\Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
