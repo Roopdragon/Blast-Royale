@@ -8,6 +8,322 @@ namespace Quantum.Editor {
   using UnityEngine;
   using UnityEditor;
 
+  [CustomPropertyDrawer(typeof(AssetRefAIAction))]
+  public class AssetRefAIActionPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(AIActionAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefAIBlackboard))]
+  public class AssetRefAIBlackboardPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(AIBlackboardAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefAIBlackboardInitializer))]
+  public class AssetRefAIBlackboardInitializerPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(AIBlackboardInitializerAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefAIConfig))]
+  public class AssetRefAIConfigPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(AIConfigAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefAIFunction))]
+  public class AssetRefAIFunctionPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(AIFunctionAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefBTComposite))]
+  public class AssetRefBTCompositePropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(BTCompositeAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefBTDecorator))]
+  public class AssetRefBTDecoratorPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(BTDecoratorAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefBTNode))]
+  public class AssetRefBTNodePropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(BTNodeAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefBTRoot))]
+  public class AssetRefBTRootPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(BTRootAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefBTService))]
+  public class AssetRefBTServicePropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(BTServiceAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefConsideration))]
+  public class AssetRefConsiderationPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(ConsiderationAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefGOAPAction))]
+  public class AssetRefGOAPActionPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(GOAPActionAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefGOAPBackValidation))]
+  public class AssetRefGOAPBackValidationPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(GOAPBackValidationAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefGOAPGoal))]
+  public class AssetRefGOAPGoalPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(GOAPGoalAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefGOAPHeuristic))]
+  public class AssetRefGOAPHeuristicPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(GOAPHeuristicAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefGOAPRoot))]
+  public class AssetRefGOAPRootPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(GOAPRootAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefHFSMDecision))]
+  public class AssetRefHFSMDecisionPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(HFSMDecisionAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefHFSMRoot))]
+  public class AssetRefHFSMRootPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(HFSMRootAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefHFSMState))]
+  public class AssetRefHFSMStatePropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(HFSMStateAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefHFSMTransitionSet))]
+  public class AssetRefHFSMTransitionSetPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(HFSMTransitionSetAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumAssetConfigs))]
+  public class AssetRefQuantumAssetConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumAssetConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumBaseEquipmentStatConfigs))]
+  public class AssetRefQuantumBaseEquipmentStatConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumBaseEquipmentStatConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumBotConfigs))]
+  public class AssetRefQuantumBotConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumBotConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumBotDifficultyConfigs))]
+  public class AssetRefQuantumBotDifficultyConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumBotDifficultyConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumBuffConfigs))]
+  public class AssetRefQuantumBuffConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumBuffConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumChestConfigs))]
+  public class AssetRefQuantumChestConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumChestConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumConsumableConfigs))]
+  public class AssetRefQuantumConsumableConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumConsumableConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumDestructibleConfigs))]
+  public class AssetRefQuantumDestructibleConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumDestructibleConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumEquipmentMaterialStatConfigs))]
+  public class AssetRefQuantumEquipmentMaterialStatConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumEquipmentMaterialStatConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumEquipmentStatConfigs))]
+  public class AssetRefQuantumEquipmentStatConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumEquipmentStatConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumGameConfigs))]
+  public class AssetRefQuantumGameConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumGameConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumGameModeConfigs))]
+  public class AssetRefQuantumGameModeConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumGameModeConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumMapConfigs))]
+  public class AssetRefQuantumMapConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumMapConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumReviveConfigs))]
+  public class AssetRefQuantumReviveConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumReviveConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumShrinkingCircleConfigs))]
+  public class AssetRefQuantumShrinkingCircleConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumShrinkingCircleConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumSpecialConfigs))]
+  public class AssetRefQuantumSpecialConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumSpecialConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumStatConfigs))]
+  public class AssetRefQuantumStatConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumStatConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefQuantumWeaponConfigs))]
+  public class AssetRefQuantumWeaponConfigsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(QuantumWeaponConfigsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefTopDownKCCSettings))]
+  public class AssetRefTopDownKCCSettingsPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(TopDownKCCSettingsAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(AssetRefUTRoot))]
+  public class AssetRefUTRootPropertyDrawer : PropertyDrawer {
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+      AssetRefDrawer.DrawAssetRefSelector(position, property, label, typeof(UTRootAsset));
+    }
+  }
+
+  [CustomPropertyDrawer(typeof(Quantum.QString1024))]
+  partial class QStringDrawer {}
+
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.AirDropStage_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.AudioStateMachine_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.BotBehaviourType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.BotMovementType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.BuffId_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.BuffOperator_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.BuffStat_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.ChestType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.ConsumableType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.DeathDropsStrategy_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EWorldState_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentAdjective_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentEdition_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentFaction_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentGrade_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentManufacturer_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentMaterial_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.EquipmentRarity_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.GameCompletionStrategy_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.GameId_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.GameIdGroup_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.GameSimulationStateMachine_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.OperationType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.QuantumServerCommand_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.RankProcessor_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.RankSorter_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.SpawnerType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.SpecialType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.StatType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.StatusModifierType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.TargetingType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.TeamPingType_Prototype))]
+  [CustomPropertyDrawer(typeof(Quantum.Prototypes.VisibilityAreaType_Prototype))]
   [CustomPropertyDrawer(typeof(Quantum.Prototypes.InputButtons_Prototype))]
   partial class PrototypeDrawer {}
 }

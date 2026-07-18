@@ -6,6 +6,825 @@
 using System;
 namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.AIBlackboardComponent))]
+  public class AIBlackboardComponent_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.AIBlackboardComponent_Prototype> {
+    public Quantum.AssetRefAIBlackboard Board;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public BlackboardEntry_Prototype[] Entries = System.Array.Empty<BlackboardEntry_Prototype>();
+
+    public sealed override Quantum.Prototypes.AIBlackboardComponent_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.AIBlackboardComponent_Prototype();
+      result.Board = this.Board;
+      result.Entries = System.Array.ConvertAll(this.Entries, x => x.Convert(converter));
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.BlackboardEntry))]
+  public class BlackboardEntry_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.BlackboardEntry_Prototype> {
+    public BlackboardValue_Prototype Value;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public Quantum.AssetRefBTDecorator[] ReactiveDecorators = System.Array.Empty<Quantum.AssetRefBTDecorator>();
+
+    public sealed override Quantum.Prototypes.BlackboardEntry_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.BlackboardEntry_Prototype();
+      result.Value = this.Value.Convert(converter);
+      result.ReactiveDecorators = this.ReactiveDecorators;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.BlackboardValue))]
+  public class BlackboardValue_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.BlackboardValue_Prototype> {
+    public System.String _field_used_;
+    public Quantum.QBoolean BooleanValue;
+    public System.Byte ByteValue;
+    public System.Int32 IntegerValue;
+    public Photon.Deterministic.FP FPValue;
+    public Photon.Deterministic.FPVector2 FPVector2Value;
+    public Photon.Deterministic.FPVector3 FPVector3Value;
+    [Quantum.LocalReference]
+    public global::EntityPrototype EntityRefValue;
+    public Quantum.AssetRef AssetRefValue;
+
+    public sealed override Quantum.Prototypes.BlackboardValue_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.BlackboardValue_Prototype();
+      result._field_used_ = this._field_used_;
+      result.BooleanValue = this.BooleanValue;
+      result.ByteValue = this.ByteValue;
+      result.IntegerValue = this.IntegerValue;
+      result.FPValue = this.FPValue;
+      result.FPVector2Value = this.FPVector2Value;
+      result.FPVector3Value = this.FPVector3Value;
+      converter.Convert(this.EntityRefValue, out result.EntityRefValue);
+      result.AssetRefValue = this.AssetRefValue;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.BotCharacter))]
+  public class BotCharacter_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.BotCharacter_Prototype> {
+    public Quantum.Prototypes.BotBehaviourType_Prototype BehaviourType;
+    public System.Int32 BotNameIndex;
+    public Photon.Deterministic.FP DecisionInterval;
+    public Photon.Deterministic.FP LookForTargetsToShootAtInterval;
+    public Quantum.QBoolean SpeedResetAfterLanding;
+    public Photon.Deterministic.FP VisionRangeSqr;
+    public System.UInt32 AccuracySpreadAngle;
+    public Photon.Deterministic.FP ChanceToUseSpecial;
+    public Photon.Deterministic.FP SpecialAimingDeviation;
+    public System.UInt32 LoadoutGearNumber;
+    public Quantum.Prototypes.EquipmentRarity_Prototype LoadoutRarity;
+    public Photon.Deterministic.FP MaxAimingRange;
+    public Photon.Deterministic.FP MovementSpeedMultiplier;
+    public Photon.Deterministic.FP MaxDistanceToTeammateSquared;
+    public Photon.Deterministic.FP DamageTakenMultiplier;
+    public Photon.Deterministic.FP DamageDoneMultiplier;
+    public Photon.Deterministic.FPVector2 SpecialCooldown;
+    public Photon.Deterministic.FP TimeStartRunningFromCircle;
+    public System.Int32 TeamSize;
+    public Quantum.Prototypes.GameId_Prototype FavoriteWeapon;
+    public Quantum.QBoolean WillFightInZone;
+    public Photon.Deterministic.FP NextDecisionTime;
+    public Photon.Deterministic.FP NextLookForTargetsToShootAtTime;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Target;
+    [Quantum.LocalReference]
+    public global::EntityPrototype MoveTarget;
+    [Quantum.LocalReference]
+    public global::EntityPrototype RandomTeammate;
+    public Photon.Deterministic.FPVector2 StuckDetectionPosition;
+    public Quantum.QBoolean WanderDirection;
+    public Quantum.QBoolean SharpShootNextShot;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] InvalidMoveTargets = System.Array.Empty<global::EntityPrototype>();
+    public Photon.Deterministic.FP NextAllowedSpecialUseTime;
+    public Quantum.QBoolean IsMoveSpeedReseted;
+    public Quantum.Prototypes.BotMovementType_Prototype MovementType;
+
+    public sealed override Quantum.Prototypes.BotCharacter_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.BotCharacter_Prototype();
+      result.BehaviourType = this.BehaviourType;
+      result.BotNameIndex = this.BotNameIndex;
+      result.DecisionInterval = this.DecisionInterval;
+      result.LookForTargetsToShootAtInterval = this.LookForTargetsToShootAtInterval;
+      result.SpeedResetAfterLanding = this.SpeedResetAfterLanding;
+      result.VisionRangeSqr = this.VisionRangeSqr;
+      result.AccuracySpreadAngle = this.AccuracySpreadAngle;
+      result.ChanceToUseSpecial = this.ChanceToUseSpecial;
+      result.SpecialAimingDeviation = this.SpecialAimingDeviation;
+      result.LoadoutGearNumber = this.LoadoutGearNumber;
+      result.LoadoutRarity = this.LoadoutRarity;
+      result.MaxAimingRange = this.MaxAimingRange;
+      result.MovementSpeedMultiplier = this.MovementSpeedMultiplier;
+      result.MaxDistanceToTeammateSquared = this.MaxDistanceToTeammateSquared;
+      result.DamageTakenMultiplier = this.DamageTakenMultiplier;
+      result.DamageDoneMultiplier = this.DamageDoneMultiplier;
+      result.SpecialCooldown = this.SpecialCooldown;
+      result.TimeStartRunningFromCircle = this.TimeStartRunningFromCircle;
+      result.TeamSize = this.TeamSize;
+      result.FavoriteWeapon = this.FavoriteWeapon;
+      result.WillFightInZone = this.WillFightInZone;
+      result.NextDecisionTime = this.NextDecisionTime;
+      result.NextLookForTargetsToShootAtTime = this.NextLookForTargetsToShootAtTime;
+      converter.Convert(this.Target, out result.Target);
+      converter.Convert(this.MoveTarget, out result.MoveTarget);
+      converter.Convert(this.RandomTeammate, out result.RandomTeammate);
+      result.StuckDetectionPosition = this.StuckDetectionPosition;
+      result.WanderDirection = this.WanderDirection;
+      result.SharpShootNextShot = this.SharpShootNextShot;
+      result.InvalidMoveTargets = System.Array.ConvertAll(this.InvalidMoveTargets, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.NextAllowedSpecialUseTime = this.NextAllowedSpecialUseTime;
+      result.IsMoveSpeedReseted = this.IsMoveSpeedReseted;
+      result.MovementType = this.MovementType;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Collectable))]
+  public class Collectable_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Collectable_Prototype> {
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Quantum.Prototypes.GameId_Prototype GameId;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype Spawner;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FPVector2 OriginPosition;
+
+    public sealed override Quantum.Prototypes.Collectable_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Collectable_Prototype();
+      result.GameId = this.GameId;
+      converter.Convert(this.Spawner, out result.Spawner);
+      result.OriginPosition = this.OriginPosition;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CollectableChunks))]
+  public class CollectableChunks_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CollectableChunks_Prototype> {
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DictionaryAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public DictionaryEntry_Int16_CollectableChunk_Prototype[] Collectables = System.Array.Empty<DictionaryEntry_Int16_CollectableChunk_Prototype>();
+
+    public sealed override Quantum.Prototypes.CollectableChunks_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.CollectableChunks_Prototype();
+      result.Collectables = System.Array.ConvertAll(this.Collectables, x => x.Convert(converter));
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(System.Collections.Generic.KeyValuePair<System.Int16, Quantum.CollectableChunk>))]
+  public class DictionaryEntry_Int16_CollectableChunk_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.DictionaryEntry_Int16_CollectableChunk_Prototype> {
+    public System.Int16 Key;
+    public CollectableChunk_Prototype Value;
+
+    public sealed override Quantum.Prototypes.DictionaryEntry_Int16_CollectableChunk_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.DictionaryEntry_Int16_CollectableChunk_Prototype();
+      result.Key = this.Key;
+      result.Value = this.Value.Convert(converter);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CollectableChunk))]
+  public class CollectableChunk_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CollectableChunk_Prototype> {
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] Entities = System.Array.Empty<global::EntityPrototype>();
+
+    public sealed override Quantum.Prototypes.CollectableChunk_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.CollectableChunk_Prototype();
+      result.Entities = System.Array.ConvertAll(this.Entities, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CollectablePlatformSpawner))]
+  public class CollectablePlatformSpawner_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CollectablePlatformSpawner_Prototype> {
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype Collectable;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP NextSpawnTime;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public System.UInt32 SpawnCount;
+    public System.UInt32 RespawnTimeInSec;
+    public System.UInt32 InitialSpawnDelayInSec;
+    public Quantum.Prototypes.GameId_Prototype GameId;
+    public System.Int32 RarityModifier;
+    public Quantum.QBoolean Disabled;
+    public Quantum.QBoolean DoNotDestroy;
+
+    public sealed override Quantum.Prototypes.CollectablePlatformSpawner_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.CollectablePlatformSpawner_Prototype();
+      converter.Convert(this.Collectable, out result.Collectable);
+      result.NextSpawnTime = this.NextSpawnTime;
+      result.SpawnCount = this.SpawnCount;
+      result.RespawnTimeInSec = this.RespawnTimeInSec;
+      result.InitialSpawnDelayInSec = this.InitialSpawnDelayInSec;
+      result.GameId = this.GameId;
+      result.RarityModifier = this.RarityModifier;
+      result.Disabled = this.Disabled;
+      result.DoNotDestroy = this.DoNotDestroy;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CollectableTime))]
+  public class CollectableTime_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CollectableTime_Prototype> {
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DictionaryAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public DictionaryEntry_EntityRef_FP_Prototype[] CollectorsEndTime = System.Array.Empty<DictionaryEntry_EntityRef_FP_Prototype>();
+
+    public sealed override Quantum.Prototypes.CollectableTime_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.CollectableTime_Prototype();
+      result.CollectorsEndTime = System.Array.ConvertAll(this.CollectorsEndTime, x => x.Convert(converter));
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(System.Collections.Generic.KeyValuePair<Quantum.EntityRef, Photon.Deterministic.FP>))]
+  public class DictionaryEntry_EntityRef_FP_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.DictionaryEntry_EntityRef_FP_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Key;
+    public Photon.Deterministic.FP Value;
+
+    public sealed override Quantum.Prototypes.DictionaryEntry_EntityRef_FP_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.DictionaryEntry_EntityRef_FP_Prototype();
+      converter.Convert(this.Key, out result.Key);
+      result.Value = this.Value;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.DeadPlayerCharacter))]
+  public class DeadPlayerCharacter_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.DeadPlayerCharacter_Prototype> {
+    public Quantum.PlayerRef Killer;
+    [Quantum.LocalReference]
+    public global::EntityPrototype KillerEntity;
+    public Photon.Deterministic.FP TimeOfDeath;
+
+    public sealed override Quantum.Prototypes.DeadPlayerCharacter_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.DeadPlayerCharacter_Prototype();
+      result.Killer = this.Killer;
+      converter.Convert(this.KillerEntity, out result.KillerEntity);
+      result.TimeOfDeath = this.TimeOfDeath;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Destructible))]
+  public class Destructible_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Destructible_Prototype> {
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Quantum.QBoolean IsDestructing;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype Destroyer;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP TimeToDestroy;
+    public Photon.Deterministic.FP Health;
+    public Photon.Deterministic.FP DamagePower;
+    public Photon.Deterministic.FP SplashRadius;
+    [Quantum.Inspector.ArrayLengthAttribute((Int32)2)]
+    public Photon.Deterministic.FP[] DestructionLengthTime = new Photon.Deterministic.FP[2];
+    public Quantum.Prototypes.GameId_Prototype GameId;
+
+    public sealed override Quantum.Prototypes.Destructible_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Destructible_Prototype();
+      result.IsDestructing = this.IsDestructing;
+      converter.Convert(this.Destroyer, out result.Destroyer);
+      result.TimeToDestroy = this.TimeToDestroy;
+      result.Health = this.Health;
+      result.DamagePower = this.DamagePower;
+      result.SplashRadius = this.SplashRadius;
+      result.DestructionLengthTime = this.DestructionLengthTime;
+      result.GameId = this.GameId;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.EntityGroup))]
+  public class EntityGroup_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.EntityGroup_Prototype> {
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] Entities = System.Array.Empty<global::EntityPrototype>();
+    public System.Byte EntitiesToKeep;
+
+    public sealed override Quantum.Prototypes.EntityGroup_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.EntityGroup_Prototype();
+      result.Entities = System.Array.ConvertAll(this.Entities, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.EntitiesToKeep = this.EntitiesToKeep;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.GameContainer))]
+  public class GameContainer_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.GameContainer_Prototype> {
+    [Quantum.Inspector.ArrayLengthAttribute((Int32)50)]
+    public PlayerMatchData_Prototype[] PlayersData = new PlayerMatchData_Prototype[50];
+    public System.UInt32 CurrentProgress;
+    public System.UInt32 TargetProgress;
+    public Quantum.QBoolean IsGameFailed;
+    public Quantum.QBoolean IsGameOver;
+    public Quantum.QBoolean IsGameStarted;
+    public Photon.Deterministic.FP GameOverTime;
+
+    public sealed override Quantum.Prototypes.GameContainer_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.GameContainer_Prototype();
+      result.PlayersData = System.Array.ConvertAll(this.PlayersData, x => x.Convert(converter));
+      result.CurrentProgress = this.CurrentProgress;
+      result.TargetProgress = this.TargetProgress;
+      result.IsGameFailed = this.IsGameFailed;
+      result.IsGameOver = this.IsGameOver;
+      result.IsGameStarted = this.IsGameStarted;
+      result.GameOverTime = this.GameOverTime;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PlayerMatchData))]
+  public class PlayerMatchData_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PlayerMatchData_Prototype> {
+    public Quantum.PlayerRef Player;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Entity;
+    public System.UInt16 PlayerLevel;
+    public System.UInt32 PlayerTrophies;
+    public System.Int32 TeamId;
+    public System.Int16 BotNameIndex;
+    public Photon.Deterministic.FPVector2 LastDeathPosition;
+    public Photon.Deterministic.FP FirstDeathTime;
+    public System.UInt16 PlayersKilledCount;
+    public System.UInt32 DamageDone;
+    public System.UInt32 HealingDone;
+    public System.UInt32 DamageReceived;
+    public System.UInt32 HealingReceived;
+    public System.UInt16 DeathCount;
+    public System.UInt16 SuicideCount;
+    public System.UInt16 SpecialsUsedCount;
+    public System.UInt16 AirdropOpenedCount;
+    public System.UInt16 SupplyCrateOpenedCount;
+    public System.UInt16 GunsCollectedCount;
+    public System.UInt16 PickupCollectedCount;
+    public System.UInt16 CurrentKillStreak;
+    public System.UInt16 CurrentMultiKill;
+    public Photon.Deterministic.FP MultiKillResetTime;
+    public Quantum.QBoolean KilledByBeingAFK;
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DictionaryAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public Quantum.Prototypes.DictionaryEntry_GameId_UInt16_Prototype[] CollectedMetaItems = System.Array.Empty<Quantum.Prototypes.DictionaryEntry_GameId_UInt16_Prototype>();
+
+    public sealed override Quantum.Prototypes.PlayerMatchData_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.PlayerMatchData_Prototype();
+      result.Player = this.Player;
+      converter.Convert(this.Entity, out result.Entity);
+      result.PlayerLevel = this.PlayerLevel;
+      result.PlayerTrophies = this.PlayerTrophies;
+      result.TeamId = this.TeamId;
+      result.BotNameIndex = this.BotNameIndex;
+      result.LastDeathPosition = this.LastDeathPosition;
+      result.FirstDeathTime = this.FirstDeathTime;
+      result.PlayersKilledCount = this.PlayersKilledCount;
+      result.DamageDone = this.DamageDone;
+      result.HealingDone = this.HealingDone;
+      result.DamageReceived = this.DamageReceived;
+      result.HealingReceived = this.HealingReceived;
+      result.DeathCount = this.DeathCount;
+      result.SuicideCount = this.SuicideCount;
+      result.SpecialsUsedCount = this.SpecialsUsedCount;
+      result.AirdropOpenedCount = this.AirdropOpenedCount;
+      result.SupplyCrateOpenedCount = this.SupplyCrateOpenedCount;
+      result.GunsCollectedCount = this.GunsCollectedCount;
+      result.PickupCollectedCount = this.PickupCollectedCount;
+      result.CurrentKillStreak = this.CurrentKillStreak;
+      result.CurrentMultiKill = this.CurrentMultiKill;
+      result.MultiKillResetTime = this.MultiKillResetTime;
+      result.KilledByBeingAFK = this.KilledByBeingAFK;
+      result.CollectedMetaItems = this.CollectedMetaItems;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Hazard))]
+  public class Hazard_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Hazard_Prototype> {
+    public Quantum.Prototypes.GameId_Prototype GameId;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Attacker;
+    public System.Int32 TeamSource;
+    public Photon.Deterministic.FP Radius;
+    public Photon.Deterministic.FP EndTime;
+    public Photon.Deterministic.FP Interval;
+    public Photon.Deterministic.FP NextTickTime;
+    public Photon.Deterministic.FP PowerAmount;
+    public System.UInt32 Knockback;
+    public Photon.Deterministic.FP StunDuration;
+    public System.UInt32 MaxHitCount;
+
+    public sealed override Quantum.Prototypes.Hazard_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Hazard_Prototype();
+      result.GameId = this.GameId;
+      converter.Convert(this.Attacker, out result.Attacker);
+      result.TeamSource = this.TeamSource;
+      result.Radius = this.Radius;
+      result.EndTime = this.EndTime;
+      result.Interval = this.Interval;
+      result.NextTickTime = this.NextTickTime;
+      result.PowerAmount = this.PowerAmount;
+      result.Knockback = this.Knockback;
+      result.StunDuration = this.StunDuration;
+      result.MaxHitCount = this.MaxHitCount;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.InsideVisibilityArea))]
+  public class InsideVisibilityArea_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.InsideVisibilityArea_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Area;
+
+    public sealed override Quantum.Prototypes.InsideVisibilityArea_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.InsideVisibilityArea_Prototype();
+      converter.Convert(this.Area, out result.Area);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.KnockedOut))]
+  public class KnockedOut_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.KnockedOut_Prototype> {
+    public System.Byte ConfigIndex;
+    public Photon.Deterministic.FP NextDamageAt;
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] PlayersReviving = System.Array.Empty<global::EntityPrototype>();
+    public Photon.Deterministic.FP EndRevivingAt;
+    public Photon.Deterministic.FP BackAtZero;
+    [Quantum.LocalReference]
+    public global::EntityPrototype KnockedOutBy;
+    [Quantum.LocalReference]
+    public global::EntityPrototype ColliderEntity;
+
+    public sealed override Quantum.Prototypes.KnockedOut_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.KnockedOut_Prototype();
+      result.ConfigIndex = this.ConfigIndex;
+      result.NextDamageAt = this.NextDamageAt;
+      result.PlayersReviving = System.Array.ConvertAll(this.PlayersReviving, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.EndRevivingAt = this.EndRevivingAt;
+      result.BackAtZero = this.BackAtZero;
+      converter.Convert(this.KnockedOutBy, out result.KnockedOutBy);
+      converter.Convert(this.ColliderEntity, out result.ColliderEntity);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.KnockedOutCollider))]
+  public class KnockedOutCollider_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.KnockedOutCollider_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype KnockedOutEntity;
+
+    public sealed override Quantum.Prototypes.KnockedOutCollider_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.KnockedOutCollider_Prototype();
+      converter.Convert(this.KnockedOutEntity, out result.KnockedOutEntity);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.LandMine))]
+  public class LandMine_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.LandMine_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Owner;
+    public Photon.Deterministic.FP TriggeredTime;
+    public Photon.Deterministic.FP TriggerableAfter;
+    public Photon.Deterministic.FP Radius;
+    public System.UInt32 Damage;
+    public Quantum.QBoolean AutoTrigerred;
+
+    public sealed override Quantum.Prototypes.LandMine_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.LandMine_Prototype();
+      converter.Convert(this.Owner, out result.Owner);
+      result.TriggeredTime = this.TriggeredTime;
+      result.TriggerableAfter = this.TriggerableAfter;
+      result.Radius = this.Radius;
+      result.Damage = this.Damage;
+      result.AutoTrigerred = this.AutoTrigerred;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Projectile))]
+  public class Projectile_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Projectile_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Attacker;
+    public Quantum.QBoolean Blocked;
+    public Quantum.Prototypes.GameId_Prototype SourceId;
+    public System.Byte TeamSource;
+    public Photon.Deterministic.FPVector2 SpawnPosition;
+    public Photon.Deterministic.FPVector2 Direction;
+    public Photon.Deterministic.FP DespawnTime;
+    public System.Byte KnockbackAmount;
+    public System.Byte Speed;
+    public System.Int16 RangeSquared;
+    public System.Byte DamagePct;
+    public System.Byte StunDuration;
+    public System.Byte Iteration;
+    public System.Byte ShotNumber;
+
+    public sealed override Quantum.Prototypes.Projectile_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Projectile_Prototype();
+      converter.Convert(this.Attacker, out result.Attacker);
+      result.Blocked = this.Blocked;
+      result.SourceId = this.SourceId;
+      result.TeamSource = this.TeamSource;
+      result.SpawnPosition = this.SpawnPosition;
+      result.Direction = this.Direction;
+      result.DespawnTime = this.DespawnTime;
+      result.KnockbackAmount = this.KnockbackAmount;
+      result.Speed = this.Speed;
+      result.RangeSquared = this.RangeSquared;
+      result.DamagePct = this.DamagePct;
+      result.StunDuration = this.StunDuration;
+      result.Iteration = this.Iteration;
+      result.ShotNumber = this.ShotNumber;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.RaycastShots))]
+  public class RaycastShots_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.RaycastShots_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Attacker;
+    public Quantum.Prototypes.GameId_Prototype WeaponConfigId;
+    public System.Int32 TeamSource;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public System.Int32[] LinecastQueries = System.Array.Empty<System.Int32>();
+    public Quantum.QBoolean CanHitSameTarget;
+    public Photon.Deterministic.FPVector2 SpawnPosition;
+    public Photon.Deterministic.FPVector2 Direction;
+    public System.UInt32 PowerAmount;
+    public System.UInt32 KnockbackAmount;
+    public System.UInt32 AttackAngle;
+    public Photon.Deterministic.FP Range;
+    public Photon.Deterministic.FP Speed;
+    public Photon.Deterministic.FP SplashRadius;
+    public Photon.Deterministic.FP StartTime;
+    public Photon.Deterministic.FP PreviousTime;
+    public System.UInt32 NumberOfShots;
+    public Photon.Deterministic.FP AccuracyModifier;
+
+    public sealed override Quantum.Prototypes.RaycastShots_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.RaycastShots_Prototype();
+      converter.Convert(this.Attacker, out result.Attacker);
+      result.WeaponConfigId = this.WeaponConfigId;
+      result.TeamSource = this.TeamSource;
+      result.LinecastQueries = this.LinecastQueries;
+      result.CanHitSameTarget = this.CanHitSameTarget;
+      result.SpawnPosition = this.SpawnPosition;
+      result.Direction = this.Direction;
+      result.PowerAmount = this.PowerAmount;
+      result.KnockbackAmount = this.KnockbackAmount;
+      result.AttackAngle = this.AttackAngle;
+      result.Range = this.Range;
+      result.Speed = this.Speed;
+      result.SplashRadius = this.SplashRadius;
+      result.StartTime = this.StartTime;
+      result.PreviousTime = this.PreviousTime;
+      result.NumberOfShots = this.NumberOfShots;
+      result.AccuracyModifier = this.AccuracyModifier;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Spell))]
+  public class Spell_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Spell_Prototype> {
+    public System.Byte Id;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Victim;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Attacker;
+    [Quantum.LocalReference]
+    public global::EntityPrototype SpellSource;
+    public System.Int32 TeamSource;
+    public System.UInt32 PowerAmount;
+    public System.UInt32 KnockbackAmount;
+    public Photon.Deterministic.FPVector2 OriginalHitPosition;
+    public Photon.Deterministic.FP Cooldown;
+    public Photon.Deterministic.FP NextHitTime;
+    public Photon.Deterministic.FP EndTime;
+    public Quantum.QBoolean IgnoreShield;
+    public System.Byte ShotNumber;
+
+    public sealed override Quantum.Prototypes.Spell_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Spell_Prototype();
+      result.Id = this.Id;
+      converter.Convert(this.Victim, out result.Victim);
+      converter.Convert(this.Attacker, out result.Attacker);
+      converter.Convert(this.SpellSource, out result.SpellSource);
+      result.TeamSource = this.TeamSource;
+      result.PowerAmount = this.PowerAmount;
+      result.KnockbackAmount = this.KnockbackAmount;
+      result.OriginalHitPosition = this.OriginalHitPosition;
+      result.Cooldown = this.Cooldown;
+      result.NextHitTime = this.NextHitTime;
+      result.EndTime = this.EndTime;
+      result.IgnoreShield = this.IgnoreShield;
+      result.ShotNumber = this.ShotNumber;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Star))]
+  public class Star_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Star_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype DamageHazard;
+    public Photon.Deterministic.FP Power;
+    public System.UInt32 SpeedModifierId;
+
+    public sealed override Quantum.Prototypes.Star_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Star_Prototype();
+      converter.Convert(this.DamageHazard, out result.DamageHazard);
+      result.Power = this.Power;
+      result.SpeedModifierId = this.SpeedModifierId;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Stats))]
+  public class Stats_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Stats_Prototype> {
+    public System.Int32 CurrentHealth;
+    public System.Int32 CurrentShield;
+    public Photon.Deterministic.FP CurrentAmmoPercent;
+    public System.Int32 MinimumHealth;
+    public Quantum.QBoolean IsImmune;
+    [Quantum.Inspector.ArrayLengthAttribute((Int32)8)]
+    public Quantum.Prototypes.StatData_Prototype[] Values = new Quantum.Prototypes.StatData_Prototype[8];
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public Quantum.Prototypes.Modifier_Prototype[] Modifiers = System.Array.Empty<Quantum.Prototypes.Modifier_Prototype>();
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] SpellEffects = System.Array.Empty<global::EntityPrototype>();
+    public Quantum.Prototypes.StatusModifierType_Prototype CurrentStatusModifierType;
+    public Photon.Deterministic.FP CurrentStatusModifierDuration;
+    public Photon.Deterministic.FP CurrentStatusModifierEndTime;
+
+    public sealed override Quantum.Prototypes.Stats_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Stats_Prototype();
+      result.CurrentHealth = this.CurrentHealth;
+      result.CurrentShield = this.CurrentShield;
+      result.CurrentAmmoPercent = this.CurrentAmmoPercent;
+      result.MinimumHealth = this.MinimumHealth;
+      result.IsImmune = this.IsImmune;
+      result.Values = this.Values;
+      result.Modifiers = this.Modifiers;
+      result.SpellEffects = System.Array.ConvertAll(this.SpellEffects, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.CurrentStatusModifierType = this.CurrentStatusModifierType;
+      result.CurrentStatusModifierDuration = this.CurrentStatusModifierDuration;
+      result.CurrentStatusModifierEndTime = this.CurrentStatusModifierEndTime;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.TeamMember))]
+  public class TeamMember_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.TeamMember_Prototype> {
+    public System.Int32 TeamId;
+    public System.Int32 TeamIndex;
+    public System.Byte Color;
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] TeamMates = System.Array.Empty<global::EntityPrototype>();
+
+    public sealed override Quantum.Prototypes.TeamMember_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.TeamMember_Prototype();
+      result.TeamId = this.TeamId;
+      result.TeamIndex = this.TeamIndex;
+      result.Color = this.Color;
+      result.TeamMates = System.Array.ConvertAll(this.TeamMates, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.TopDownController))]
+  public class TopDownController_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.TopDownController_Prototype> {
+    public Quantum.AssetRefTopDownKCCSettings Settings;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP MaxSpeed;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FPVector2 Velocity;
+    public Photon.Deterministic.FPVector2 AimDirection;
+    public Photon.Deterministic.FPVector2 MoveDirection;
+    [Quantum.Core.AllocateOnComponentAddedAttribute((Int32)8)]
+    [Quantum.Core.FreeOnComponentRemovedAttribute()]
+    [Quantum.Inspector.ArrayLengthAttribute((Int32)4)]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] CollidingWith = new global::EntityPrototype[4];
+
+    public sealed override Quantum.Prototypes.TopDownController_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.TopDownController_Prototype();
+      result.Settings = this.Settings;
+      result.MaxSpeed = this.MaxSpeed;
+      result.Velocity = this.Velocity;
+      result.AimDirection = this.AimDirection;
+      result.MoveDirection = this.MoveDirection;
+      result.CollidingWith = System.Array.ConvertAll(this.CollidingWith, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Trigger))]
+  public class Trigger_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Trigger_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype Target;
+    public TriggerData_Prototype Data;
+
+    public sealed override Quantum.Prototypes.Trigger_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Trigger_Prototype();
+      converter.Convert(this.Target, out result.Target);
+      result.Data = this.Data.Convert(converter);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.TriggerData))]
+  public class TriggerData_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.TriggerData_Prototype> {
+    public System.String _field_used_;
+    public Quantum.Prototypes.PlayersAliveTriggerData_Prototype PlayersAliveTriggerData;
+    public Quantum.Prototypes.ChestOpenTriggerData_Prototype ChestOpenTriggerData;
+    public WeaponCollectedTriggerData_Prototype WeaponCollectedTriggerData;
+
+    public sealed override Quantum.Prototypes.TriggerData_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.TriggerData_Prototype();
+      result._field_used_ = this._field_used_;
+      result.PlayersAliveTriggerData = this.PlayersAliveTriggerData;
+      result.ChestOpenTriggerData = this.ChestOpenTriggerData;
+      result.WeaponCollectedTriggerData = this.WeaponCollectedTriggerData.Convert(converter);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.WeaponCollectedTriggerData))]
+  public class WeaponCollectedTriggerData_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.WeaponCollectedTriggerData_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype WeaponSpawner;
+
+    public sealed override Quantum.Prototypes.WeaponCollectedTriggerData_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.WeaponCollectedTriggerData_Prototype();
+      converter.Convert(this.WeaponSpawner, out result.WeaponSpawner);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.TutorialRuntimeData))]
+  public class TutorialRuntimeData_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.TutorialRuntimeData_Prototype> {
+    [Quantum.Inspector.ArrayLengthAttribute((Int32)2)]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] FirstBots = new global::EntityPrototype[2];
+    [Quantum.LocalReference]
+    public global::EntityPrototype GrenadeBot;
+    [Quantum.LocalReference]
+    public global::EntityPrototype FinalBot;
+    [Quantum.LocalReference]
+    public global::EntityPrototype FirstBarrier;
+    [Quantum.LocalReference]
+    public global::EntityPrototype FinalBotBlocker;
+
+    public sealed override Quantum.Prototypes.TutorialRuntimeData_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.TutorialRuntimeData_Prototype();
+      result.FirstBots = System.Array.ConvertAll(this.FirstBots, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      converter.Convert(this.GrenadeBot, out result.GrenadeBot);
+      converter.Convert(this.FinalBot, out result.FinalBot);
+      converter.Convert(this.FirstBarrier, out result.FirstBarrier);
+      converter.Convert(this.FinalBotBlocker, out result.FinalBotBlocker);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.VisibilityArea))]
+  public class VisibilityArea_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.VisibilityArea_Prototype> {
+    public Quantum.Prototypes.VisibilityAreaType_Prototype AreaType;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] EntitiesIn = System.Array.Empty<global::EntityPrototype>();
+
+    public sealed override Quantum.Prototypes.VisibilityArea_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.VisibilityArea_Prototype();
+      result.AreaType = this.AreaType;
+      result.EntitiesIn = System.Array.ConvertAll(this.EntitiesIn, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PhysicsJoints3D))]
   public class PhysicsJoints3D_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PhysicsJoints3D_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]
